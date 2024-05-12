@@ -1,0 +1,97 @@
+<p-toast [style]="{marginTop: '80px', width: '320px'}"></p-toast>
+
+<div class="p-fluid p-formgrid grid">
+
+    <div class="field col-12 lg:col-12 md:col-12">
+        <p-card header="Diabetes Prediction">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtname">Age</label>
+                    <input class="inputfield w-full" id="txtage" type="text" [(ngModel)]="diabetes.age" pInputText placeholder="Age">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtbp">Blood Pressure</label>
+                    <input class="inputfield w-full" id="txtbp" type="text" [(ngModel)]="diabetes.bloodpressure" pInputText placeholder="Blood Pressure">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtbmi">BMI (Corporal Mass Index)</label>
+                    <input class="inputfield w-full" id="txtbmi" type="text" [(ngModel)]="diabetes.bmi" pInputText placeholder="BMI (Corporal Mass Index)">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtglucose">Glucose</label>
+                    <input class="inputfield w-full" id="txtglucose" type="text" [(ngModel)]="diabetes.glucose" pInputText placeholder="Glucose">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtinsulin">Insulin</label>
+                    <input class="inputfield w-full" id="txtinsulin" type="text" [(ngModel)]="diabetes.insulin" pInputText placeholder="Insulin">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtskinthickness">Skin Thickness</label>
+                    <input class="inputfield w-full" id="txtskinthickness" type="text" [(ngModel)]="diabetes.skinthickness" pInputText placeholder="Skin Thickness">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtdiabetespedigree">Family Background (ped)</label>
+                    <input class="inputfield w-full" id="txtdiabetespedigree" type="text" [(ngModel)]="diabetes.diabetespedigree" pInputText placeholder="Family Background">
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <label for="txtpregnancies">Pregnancy Amount</label>
+                    <input class="inputfield w-full" id="txtpregnancies" type="text" [(ngModel)]="diabetes.pregnancies" pInputText placeholder="Pregnancy Amount">
+                </div>
+                
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <button pButton pRipple type="button" label="Do the predictions" (click)="predict()"></button>
+                </div>
+                
+                <div *ngIf="showResults" class="field col-12 lg:col-9 md:col-9">
+                    <h3>{{diabetes.PredictedDiabetes == 0 ? "LOW likelihood of diabetes": "HIGH likelihood of diabetes"}}</h3>
+                </div>
+                
+            </div>
+        </p-card>
+
+        <br/>
+
+        <p-card header="Examples of valid values to you use above">
+            <p-table [value]="samples" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Result</th>
+                        <th>Age</th>
+                        <th>Blood Pressure</th>
+                        <th>BMI</th>
+                        <th>Glucose</th>
+                        <th>Insulin</th>
+                        <th>Skin Thickness</th>
+                        <th>Family Background (ped)</th>
+                        <th>Pregnancy Amount</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-sample>
+                    <tr>
+                        <td>{{sample.PredictedDiabetes == 0 ? "LOW likelihood of diabetes": "HIGH likelihood of diabetes"}}</td>
+                        <td>{{sample.age}}</td>
+                        <td>{{sample.bloodpressure}}</td>
+                        <td>{{sample.bmi}}</td>
+                        <td>{{sample.diabetespedigree}}</td>
+                        <td>{{sample.glucose}}</td>
+                        <td>{{sample.insulin}}</td>
+                        <td>{{sample.pregnancies}}</td>
+                        <td>{{sample.skinthickness}}</td>
+                        <td><button pButton pRipple type="button" label="Use these values" class="col-12 lg:col-3 md:col-3" (click)="selectValues(sample)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+
+</div>
+

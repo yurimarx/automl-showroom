@@ -1,0 +1,209 @@
+<p-toast [style]="{marginTop: '80px', width: '320px'}"></p-toast>
+
+<div class="p-fluid p-formgrid grid">
+
+    <div class="field col-12 lg:col-12 md:col-12">
+        <p-card header="Kidney Prediction">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtage">Age</label>
+                    <input class="inputfield w-full" id="txtage" type="text" [(ngModel)]="kidney.age" pInputText placeholder="Age">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtbp">Blood Pressure</label>
+                    <input class="inputfield w-full" id="txtbp" type="text" [(ngModel)]="kidney.bp" pInputText placeholder="Blood Pressure">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtsg">Specific Gravity</label>
+                    <input class="inputfield w-full" id="txtsg" type="text" [(ngModel)]="kidney.sg" pInputText placeholder="Specific Gravity">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtal">Albumin</label>
+                    <input class="inputfield w-full" id="txtal" type="text" [(ngModel)]="kidney.al" pInputText placeholder="Albumin">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtsu">Sugar</label>
+                    <input class="inputfield w-full" id="txtinsu" type="text" [(ngModel)]="kidney.su" pInputText placeholder="Sugar">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtbgr">Blood Glucose Random</label>
+                    <input class="inputfield w-full" id="txtbgr" type="text" [(ngModel)]="kidney.bgr" pInputText placeholder="Blood Glucose Random">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtrbc">Red Blood Cells</label>
+                    <p-dropdown class="inputfield w-full" [options]="normalAbnormalOptions" [(ngModel)]="kidney.rbc" placeholder="Normal/Abnormal" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtpc">Pus Cell</label>
+                    <p-dropdown class="inputfield w-full" [options]="normalAbnormalOptions" [(ngModel)]="kidney.pc" placeholder="Normal/Abnormal" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtpcc">Pus Cell Clumps</label>
+                    <p-dropdown class="inputfield w-full" [options]="presentNotPresentOptions" [(ngModel)]="kidney.pcc" placeholder="Present/Not" [showClear]="true"></p-dropdown>
+                </div>
+                
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtba">Bacteria</label>
+                    <p-dropdown class="inputfield w-full" [options]="presentNotPresentOptions" [(ngModel)]="kidney.ba" placeholder="Present/Not" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtbu">Blood Urea</label>
+                    <input class="inputfield w-full" id="txtbu" type="text" [(ngModel)]="kidney.bu" pInputText placeholder="Blood Urea">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtsc">Serum Creatinine</label>
+                    <input class="inputfield w-full" id="txtsc" type="text" [(ngModel)]="kidney.sc" pInputText placeholder="Serum Creatinine">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtsod">Sodium</label>
+                    <input class="inputfield w-full" id="txtsod" type="text" [(ngModel)]="kidney.sod" pInputText placeholder="Sodium">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtpot">Potassio</label>
+                    <input class="inputfield w-full" id="txtpot" type="text" [(ngModel)]="kidney.pot" pInputText placeholder="Potassio">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txthemo">Hemoglobin</label>
+                    <input class="inputfield w-full" id="txthemo" type="text" [(ngModel)]="kidney.hemo" pInputText placeholder="Hemoglobin">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtpcv">Packed Cell Volume</label>
+                    <input class="inputfield w-full" id="txtpcv" type="text" [(ngModel)]="kidney.pcv" pInputText placeholder="Packed Cell Volume">
+                </div>
+                
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtwc">White Blood Cell Count</label>
+                    <input class="inputfield w-full" id="txtwc" type="text" [(ngModel)]="kidney.wc" pInputText placeholder="White Blood Cell Count">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtrc">Red blood cell count</label>
+                    <input class="inputfield w-full" id="txtrc" type="text" [(ngModel)]="kidney.rc" pInputText placeholder="Red blood cell count">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txthtn">Hypertension</label>
+                    <p-dropdown class="inputfield w-full" [options]="yesNoOptions" [(ngModel)]="kidney.htn" placeholder="Yes/No" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtdm">Diabetes Mellitus</label>
+                    <p-dropdown class="inputfield w-full" [options]="yesNoOptions" [(ngModel)]="kidney.dm" placeholder="Yes/No" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtcad">Coronary Artery Disease</label>
+                    <p-dropdown class="inputfield w-full" [options]="yesNoOptions" [(ngModel)]="kidney.cad" placeholder="Yes/No" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtappetite">Appetite</label>
+                    <p-dropdown class="inputfield w-full" [options]="goodPoorOptions" [(ngModel)]="kidney.appet" placeholder="Good or Poor" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtpe">Pedal Edema</label>
+                    <p-dropdown class="inputfield w-full" [options]="yesNoOptions" [(ngModel)]="kidney.pe" placeholder="Yes/No" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtane">Anemia</label>
+                    <p-dropdown class="inputfield w-full" [options]="yesNoOptions" [(ngModel)]="kidney.ane" placeholder="Yes/No" [showClear]="true"></p-dropdown>
+                </div>
+
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <button pButton pRipple type="button" label="Do the predictions" (click)="predict()"></button>
+                </div>
+                
+                <div *ngIf="showResults" class="field col-12 lg:col-9 md:col-9">
+                    <h3>{{kidney.classification == 'notckd' ? "LOW likelihood of Kidney disease": "HIGH likelihood of Kidney disease"}}</h3>
+                </div>
+                
+            </div>
+        </p-card>
+
+        <br/>
+
+        <p-card header="Examples of valid values to you use above">
+            <p-table [value]="samples" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Result</th>
+                        <th>Age</th>
+                        <th>Blood Pressure</th>
+                        <th>Specific Gravity</th>
+                        <th>Albumin</th>
+                        <th>Sugar</th>
+                        <th>Red Blood Cells</th>
+                        <th>Pus Cell</th>
+                        <th>Pus Cell Clumps</th>
+                        <th>Bacteria</th>
+                        <th>Blood Glucose Random</th>
+                        <th>Blood Urea</th>
+                        <th>Serum Creatinine</th>
+                        <th>Sodium</th>
+                        <th>Potassio</th>
+                        <th>Hemoglobin</th>
+                        <th>Packed Cell Volume</th>
+                        <th>White Blood Cell Count</th>
+                        <th>Red Blood Cell Count</th>
+                        <th>Hypertension</th>
+                        <th>Diabetes Mellitus</th>
+                        <th>Coronary Artery Disease</th>
+                        <th>Appetite</th>
+                        <th>Pedal Edema</th>
+                        <th>Anemia</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-sample>
+                    <tr>
+                        <td>{{sample.classification == 'notckd' ? "LOW likelihood of Kidney disease": "HIGH likelihood of Kidney disease"}}</td>
+                        <td>{{sample.age}}</td>
+                        <td>{{sample.bp}}</td>
+                        <td>{{sample.sg}}</td>
+                        <td>{{sample.al}}</td>
+                        <td>{{sample.su}}</td>
+                        <td>{{sample.rbc}}</td>
+                        <td>{{sample.pc}}</td>
+                        <td>{{sample.pcc}}</td>
+                        <td>{{sample.ba}}</td>
+                        <td>{{sample.bgr}}</td>
+                        <td>{{sample.bu}}</td>
+                        <td>{{sample.sc}}</td>
+                        <td>{{sample.sod}}</td>
+                        <td>{{sample.pot}}</td>
+                        <td>{{sample.hemo}}</td>
+                        <td>{{sample.pcv}}</td>
+                        <td>{{sample.wc}}</td>
+                        <td>{{sample.rc}}</td>
+                        <td>{{sample.htn}}</td>
+                        <td>{{sample.dm}}</td>
+                        <td>{{sample.cad}}</td>
+                        <td>{{sample.appet}}</td>
+                        <td>{{sample.pe}}</td>
+                        <td>{{sample.ane}}</td>
+                        <td><button pButton pRipple type="button" label="Use these values" class="col-12 lg:col-3 md:col-3" (click)="selectValues(sample)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+
+</div>
+

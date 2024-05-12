@@ -1,0 +1,83 @@
+<p-toast [style]="{marginTop: '80px', width: '320px'}"></p-toast>
+
+<div class="p-fluid p-formgrid grid">
+
+    <div class="field col-12 lg:col-12 md:col-12">
+        <p-card header="Maternal Risk Prediction">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtname">Age</label>
+                    <input class="inputfield w-full" id="txtage" type="text" [(ngModel)]="maternal.Age" pInputText placeholder="Age">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtbp">Blood Sugar</label>
+                    <input class="inputfield w-full" id="txtbp" type="text" [(ngModel)]="maternal.BS" pInputText placeholder="Blood Sugar">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txttemp">Temperature</label>
+                    <input class="inputfield w-full" id="txttemp" type="text" [(ngModel)]="maternal.BodyTemp" pInputText placeholder="Corporal Temperature">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txthr">Heart Rate</label>
+                    <input class="inputfield w-full" id="txthr" type="text" [(ngModel)]="maternal.HeartRate" pInputText placeholder="Heart Rate">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtSystolicBP">Systolic BP</label>
+                    <input class="inputfield w-full" id="txtSystolicBP" type="text" [(ngModel)]="maternal.SystolicBP" pInputText placeholder="Systolic BP">
+                </div>
+
+                <div class="field col-12 lg:col-2 md:col-2">
+                    <label for="txtDiastolicBP">Diastolic BP</label>
+                    <input class="inputfield w-full" id="txtDiastolicBP" type="text" [(ngModel)]="maternal.DiastolicBP" pInputText placeholder="Diastolic BP">
+                </div>
+                
+                <div class="field col-12 lg:col-3 md:col-3">
+                    <button pButton pRipple type="button" label="Do the predictions" (click)="predict()"></button>
+                </div>
+                
+                <div *ngIf="showResults" class="field col-12 lg:col-9 md:col-9">
+                    <h3>{{maternal.PredictedMaternalRisk.toUpperCase() + " of maternal risk"}}</h3>
+                </div>
+                
+            </div>
+        </p-card>
+
+        <br/>
+
+        <p-card header="Examples of valid values to you use above">
+            <p-table [value]="samples" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Result</th>
+                        <th>Age</th>
+                        <th>Blood Sugar</th>
+                        <th>Temperature</th>
+                        <th>Heart Rate</th>
+                        <th>Systolic BP</th>
+                        <th>Diastolic BP</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-sample>
+                    <tr>
+                        <td>{{sample.PredictedMaternalRisk.toUpperCase()}}</td>
+                        <td>{{sample.Age}}</td>
+                        <td>{{sample.BS}}</td>
+                        <td>{{sample.BodyTemp}}</td>
+                        <td>{{sample.HeartRate}}</td>
+                        <td>{{sample.SystolicBP}}</td>
+                        <td>{{sample.DiastolicBP}}</td>
+                        <td><button pButton pRipple type="button" label="Use these values" class="col-12 lg:col-3 md:col-3" (click)="selectValues(sample)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+
+</div>
+

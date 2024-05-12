@@ -1,0 +1,17 @@
+    zn "%SYS"
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
+
+        // create IRISAPP namespace
+    do $SYSTEM.OBJ.Load("/opt/irisapp/Installer.cls", "ck") 
+    set sc = ##class(App.Installer).setup() 
+    set sc = ##class(App.Installer).SetAppProperties("/automl-showroom","/opt/irisbuild/src/csp/")
+
+    zn "USER"
+    do $System.OBJ.LoadDir("/opt/irisapp/src/iris","ck",,1)
+       
+    zpm "load /opt/irisapp/ -v":1:1
+
+    zn "USER"
+
+    Do $SYSTEM.SQL.Schema.ImportDDL("/opt/irisapp/migration.sql","/opt/irisapp/migration.log","IRIS")
+    halt

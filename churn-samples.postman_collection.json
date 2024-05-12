@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "66fe7f87-d947-4d7e-8b7f-dd611726d357",
+		"name": "Churn-Samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Predict telecom churn",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "_SYSTEM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Dependents\": \"No\",\r\n    \"Gender\": \"Male\",\r\n    \"Partner\": \"Yes\",\r\n    \"Tenure\": 1,\r\n    \"PhoneService\": \"No\",\r\n    \"MultipleLines\": \"No\",\r\n    \"InternetService\": \"DSL\",\r\n    \"Contract\":\"Month-to-month\",\r\n    \"MonthlyCharges\": \"low\",\r\n    \"HasStreaming\":\"Yes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:52773/automl-showroom-api/predict-telco-churn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"automl-showroom-api",
+						"predict-telco-churn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predict internet churn",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "_SYSTEM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"BillAvg\": \"high\",\r\n    \"HasTvOrMoviePack\": 1,\r\n    \"ReaminingContract\": \"yes\",\r\n    \"SubscriptionAge\": \"long\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:52773/automl-showroom-api/predict-internet-churn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"automl-showroom-api",
+						"predict-internet-churn"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
